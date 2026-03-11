@@ -14,11 +14,13 @@ import {
   Mail,
 } from "lucide-react";
 
-import heroImage from "./assets/images/heroImage.png";
-import award1 from "./assets/images/award1.png";
-import award2 from "./assets/images/award2.png";
-import award3 from "./assets/images/award3.png";
-import award4 from "./assets/images/award4.png";
+// Note: Replace these placeholder image imports with your actual pizza images.
+// For now we use simple divs with background color.
+// import heroImage from "./assets/images/pizza-hero.jpg";
+// import award1 from "./assets/images/award-50top.png";
+// import award2 from "./assets/images/award-gambero.png";
+// import award3 from "./assets/images/award-tripadvisor.png";
+// import award4 from "./assets/images/award-local.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -32,75 +34,79 @@ const staggerContainer = {
   },
 };
 
+// Pizzeria awards
 const awards = [
-  { name: "Michelin Star", img: award1 },
-  { name: "World’s 50 Best", img: award2 },
-  { name: "Wine Spectator", img: award3 },
-  { name: "AAA Five Diamond", img: award4 },
+  { name: "50 Top Pizza World", img: "🏆" }, // placeholder
+  { name: "Gambero Rosso 3 Slices", img: "🍕" },
+  { name: "TripAdvisor Best of Best", img: "⭐" },
+  { name: "Local Weekly Best Pizza", img: "🏅" },
 ];
 
+// Pizzeria signature dishes
 const dishes = [
   {
-    name: "Wagyu Tataki",
-    desc: "Seared Japanese beef, yuzu ponzu, microgreens",
-    price: "$42",
+    name: "Margherita DOC",
+    desc: "San Marzano tomatoes, fior di latte, fresh basil, extra virgin olive oil",
+    price: "$16",
   },
   {
-    name: "Truffle Risotto",
-    desc: "Carnaroli rice, black truffle, parmesan foam",
-    price: "$38",
-  },
-  {
-    name: "Lobster Bisque",
-    desc: "Maine lobster, cognac, crème fraîche",
-    price: "$29",
-  },
-  {
-    name: "Dover Sole Meunière",
-    desc: "Whole sole, brown butter, lemon, parsley",
-    price: "$58",
-  },
-  {
-    name: "Chocolate Soufflé",
-    desc: "Valrhona dark chocolate, vanilla bean ice cream",
+    name: "Diavola",
+    desc: "Spicy salami, tomato sauce, mozzarella, chili oil, oregano",
     price: "$18",
   },
   {
-    name: "Cheese Cart",
-    desc: "Selection of artisanal French and Italian cheeses",
-    price: "$24",
+    name: "Quattro Formaggi",
+    desc: "Mozzarella, gorgonzola, parmesan, fontina, a touch of honey",
+    price: "$19",
+  },
+  {
+    name: "Prosciutto e Funghi",
+    desc: "Ham, mushrooms, mozzarella, tomato sauce, fresh arugula",
+    price: "$20",
+  },
+  {
+    name: "Tiramisu",
+    desc: "Classic Italian dessert with mascarpone cream and espresso",
+    price: "$8",
+  },
+  {
+    name: "Bruschetta",
+    desc: "Grilled country bread, vine-ripened tomatoes, garlic, basil",
+    price: "$9",
   },
 ];
 
+// Pizzeria philosophy
 const philosophy = [
   {
-    title: "Seasonal Ingredients",
-    desc: "We work closely with trusted growers and producers to build menus around what is at its absolute peak.",
+    title: "48‑Hour Fermented Dough",
+    desc: "We slow‑ferment our dough for a light, airy crust with deep flavor and perfect char.",
   },
   {
-    title: "Refined Craft",
-    desc: "Every element on the plate is intentional, balancing precision, beauty, texture, and restraint.",
+    title: "Imported Italian Ingredients",
+    desc: "San Marzano tomatoes, fior di latte, and extra virgin olive oil straight from Italy.",
   },
   {
-    title: "Warm Hospitality",
-    desc: "Elegant service, intimate atmosphere, and genuine attention to detail define every visit.",
+    title: "Wood‑Fired Perfection",
+    desc: "Our oak‑fired oven reaches 900°F, cooking each pizza in 90 seconds for that authentic Neapolitan taste.",
   },
 ];
 
+// Pizzeria testimonials
 const testimonials = [
   {
-    quote: "An unforgettable experience. The tasting menu is a masterpiece.",
-    author: "James R., Food Critic",
+    quote: "The best Neapolitan pizza outside of Naples. The crust is perfection.",
+    author: "Marco R., Food Blogger",
     rating: 5,
   },
   {
-    quote: "Exquisite flavors and impeccable service. A true gem.",
-    author: "Sophia L., Michelin Inspector",
+    quote: "Incredible ingredients and a cozy atmosphere. Their Diavola has the perfect kick.",
+    author: "Giulia M., Regular Guest",
     rating: 5,
   },
   {
-    quote: "The atmosphere is as beautiful as the food. Highly recommended.",
-    author: "David K., Regular Guest",
+    quote: "We drive an hour just for their Margherita. Absolutely worth it.",
+    author: "David & Sarah, Loyal Customers",
     rating: 5,
   },
 ];
@@ -178,38 +184,40 @@ export default function Home() {
               className="max-w-2xl text-center lg:text-left order-1"
             >
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-[#D4AF37]/30 bg-white/[0.03] backdrop-blur-sm text-[10px] sm:text-xs tracking-[0.18em] sm:tracking-[0.25em] uppercase text-[#D4AF37]">
-                <span>Est. 2018</span>
+                <span>Est. 2020</span>
                 <span className="opacity-40">•</span>
-                <span>Michelin Star</span>
+                <span>Artisanal Pizzeria</span>
               </div>
 
               <h1 className="mt-5 sm:mt-6 text-5xl xs:text-6xl sm:text-6xl md:text-7xl xl:text-8xl font-playfair font-semibold leading-[0.92] tracking-tight">
-                Vermilion
+                Pizzeria Vesuvio
               </h1>
 
               <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Modern European cuisine shaped by seasonal ingredients,
-                impeccable technique, and a quietly unforgettable atmosphere.
+                Authentic Neapolitan pizzas crafted with passion, wood‑fired
+                perfection, and the finest Italian ingredients.
               </p>
 
               <div className="mt-7 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-gray-300">
-                {["Tasting Menu", "Private Dining", "Wine Pairing"].map((item) => (
-                  <div
-                    key={item}
-                    className="px-3.5 sm:px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]"
-                  >
-                    {item}
-                  </div>
-                ))}
+                {["Wood‑Fired Pizzas", "Fresh Ingredients", "Family Friendly"].map(
+                  (item) => (
+                    <div
+                      key={item}
+                      className="px-3.5 sm:px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]"
+                    >
+                      {item}
+                    </div>
+                  )
+                )}
               </div>
 
               <div className="mt-7 sm:mt-8 border-l border-[#D4AF37]/60 pl-4 sm:pl-5 text-left max-w-xl mx-auto lg:mx-0">
                 <p className="italic text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
-                  “Food is memory, and we craft plates that linger long after the
-                  final course.”
+                  “Pizza is not just food, it’s a feeling. We put our heart into
+                  every pie.”
                 </p>
                 <span className="mt-2 block text-xs sm:text-sm tracking-wide text-[#D4AF37]">
-                  — Chef Elena Vance
+                  — Chef Giovanni Rossi
                 </span>
               </div>
 
@@ -239,28 +247,32 @@ export default function Home() {
 
               <div className="relative rounded-[24px] sm:rounded-[28px] md:rounded-[32px] border border-white/10 bg-white/[0.04] backdrop-blur-md overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
                 <div className="relative aspect-[4/5] sm:aspect-[4/5] lg:aspect-[4/5]">
-                  <Image
+                  {/* Replace with actual pizza hero image */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-900/80 to-stone-900 flex items-center justify-center text-white/30 text-2xl font-playfair">
+                    Pizza Hero Image
+                  </div>
+                  {/* <Image
                     src={heroImage}
-                    alt="Vermilion signature dish"
+                    alt="Pizzeria Vesuvio signature pizza"
                     fill
                     priority
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 42vw"
-                  />
+                  /> */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050B16] via-transparent to-transparent" />
 
                   <div className="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-5 sm:bottom-5 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div className="rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md p-4 sm:p-5">
                       <p className="text-[10px] sm:text-xs uppercase tracking-[0.24em] sm:tracking-[0.3em] text-[#D4AF37] mb-2">
-                        Tonight’s Signature
+                        Tonight’s Special
                       </p>
                       <h3 className="text-xl sm:text-2xl font-playfair">
-                        Wagyu Tataki
+                        Diavola
                       </h3>
                       <p className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
-                        Seared Japanese beef, yuzu ponzu, microgreens.
+                        Spicy salami, chili oil, mozzarella, San Marzano.
                       </p>
-                      <p className="mt-3 text-[#D4AF37] font-semibold">$42</p>
+                      <p className="mt-3 text-[#D4AF37] font-semibold">$18</p>
                     </div>
 
                     <div className="rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md p-4 sm:p-5">
@@ -324,7 +336,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Distinctions"
             title="Awards & Recognition"
-            subtitle="A standard of excellence recognized by leading voices in global dining and hospitality."
+            subtitle="Our pizzas are celebrated by critics and guests alike."
           />
 
           <motion.div
@@ -341,14 +353,16 @@ export default function Home() {
                 whileHover={{ y: -6, scale: 1.02 }}
                 className="group rounded-[22px] sm:rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 sm:p-6 md:p-7 text-center shadow-[0_18px_50px_rgba(0,0,0,0.28)]"
               >
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto">
-                  <Image
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto text-6xl flex items-center justify-center">
+                  {/* Replace with actual award images */}
+                  <span>{award.img}</span>
+                  {/* <Image
                     src={award.img}
                     alt={award.name}
                     fill
                     className="object-contain rounded-2xl transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 96px, 112px"
-                  />
+                  /> */}
                 </div>
                 <h3 className="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-white font-medium tracking-wide leading-snug">
                   {award.name}
@@ -363,8 +377,8 @@ export default function Home() {
       <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
         <SectionHeading
           eyebrow="Menu Highlights"
-          title="Signature Dishes"
-          subtitle="A selection of elegant compositions that define the Vermilion experience."
+          title="Signature Pizzas"
+          subtitle="Our most loved pies, crafted with tradition and passion."
         />
 
         <motion.div
@@ -417,9 +431,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative aspect-[4/5] rounded-[24px] sm:rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.10),_transparent_40%)]" />
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-base sm:text-lg">
-              Chef Portrait
+            {/* Replace with chef portrait */}
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-800/80 to-stone-800 flex items-center justify-center text-white/30 text-2xl font-playfair">
+              Chef Giovanni Rossi
             </div>
           </motion.div>
 
@@ -430,31 +444,31 @@ export default function Home() {
             className="text-center md:text-left"
           >
             <p className="text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.35em] text-[#D4AF37] mb-3">
-              Culinary Direction
+              Pizzaiolo
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-playfair leading-tight">
               Chef’s Note
             </h2>
 
             <p className="mt-5 sm:mt-6 text-gray-300 text-base sm:text-lg leading-relaxed">
-              Every dish tells a story of place, memory, and craft. Inspired by
-              the French countryside and refined through years of global
-              exploration, our menu is built around clarity of flavor and the
-              beauty of seasonal ingredients.
+              Born in Napoli, I learned the art of pizza from my nonna. Every
+              dough is a memory of home—slow‑fermented, hand‑stretched, and
+              baked in our oak‑fired oven. We use only authentic Italian
+              ingredients to bring you the true taste of Naples.
             </p>
 
             <p className="mt-6 text-[#D4AF37] font-semibold text-lg sm:text-xl">
-              — Elena Vance
+              — Giovanni Rossi
             </p>
             <p className="text-gray-400 mt-1 text-sm sm:text-base">
-              Executive Chef · 15 years of culinary excellence
+              Master Pizzaiolo · Third generation
             </p>
 
             <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {[
-                { value: "12", label: "Years at Vermilion" },
-                { value: "3", label: "Michelin Stars" },
-                { value: "50+", label: "Signature Dishes" },
+                { value: "25+", label: "Years of Experience" },
+                { value: "10k", label: "Pizzas per Year" },
+                { value: "100%", label: "Fresh Ingredients" },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -477,7 +491,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
         <SectionHeading
           eyebrow="Our Approach"
-          title="A Philosophy of Restraint, Seasonality, and Care"
+          title="The Art of Neapolitan Pizza"
         />
 
         <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-7">
@@ -514,21 +528,21 @@ export default function Home() {
             className="text-center md:text-left"
           >
             <p className="text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.35em] text-[#D4AF37] mb-3">
-              Exclusive Experiences
+              Parties & Events
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-playfair leading-tight">
               Private Dining
             </h2>
             <p className="mt-5 sm:mt-6 text-gray-300 text-base sm:text-lg leading-relaxed">
-              Host intimate celebrations, corporate dinners, and bespoke tasting
-              experiences in a private room designed for up to 20 guests.
+              Celebrate with us! Our private room accommodates up to 20 guests
+              for birthdays, corporate events, or pizza‑making workshops.
             </p>
 
             <div className="mt-7 sm:mt-8 space-y-4">
               {[
-                "Personalized menu consultation",
+                "Pizza-making class with our pizzaiolo",
+                "Personalized menu & drink pairings",
                 "Dedicated service team",
-                "Curated wine pairing options",
               ].map((item) => (
                 <div
                   key={item}
@@ -554,7 +568,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative aspect-[5/4] rounded-[24px] sm:rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
           >
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-base sm:text-lg">
+            {/* Replace with private dining room image */}
+            <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-base sm:text-lg bg-stone-800/50">
               Private Dining Room
             </div>
           </motion.div>
@@ -565,26 +580,30 @@ export default function Home() {
       <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
         <SectionHeading eyebrow="Press Features" title="As Seen In" />
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5">
-          {["Food & Wine", "Bon Appétit", "The Guardian", "Forbes", "Wine Enthusiast"].map(
-            (pub, i) => (
-              <motion.div
-                key={pub}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-full border border-white/10 bg-white/[0.04] text-gray-300 tracking-wide text-sm sm:text-base"
-              >
-                {pub}
-              </motion.div>
-            )
-          )}
+          {[
+            "La Repubblica",
+            "Food & Wine Italia",
+            "The Guardian",
+            "Forbes",
+            "Pizza Today",
+          ].map((pub, i) => (
+            <motion.div
+              key={pub}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-full border border-white/10 bg-white/[0.04] text-gray-300 tracking-wide text-sm sm:text-base"
+            >
+              {pub}
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* TESTIMONIALS */}
       <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 max-w-5xl mx-auto border-t border-white/10">
-        <SectionHeading eyebrow="Guest Stories" title="What Guests Remember Most" />
+        <SectionHeading eyebrow="Guest Stories" title="What Our Guests Say" />
 
         <div className="relative rounded-[24px] sm:rounded-[28px] md:rounded-[32px] border border-white/10 bg-white/[0.04] backdrop-blur-md p-6 sm:p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
           <div className="flex justify-center gap-1 mb-5 sm:mb-6">
@@ -652,8 +671,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative h-[280px] sm:h-[340px] md:h-[420px] rounded-[24px] sm:rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
           >
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-base sm:text-lg">
-              Interactive Map
+            {/* Replace with map or storefront image */}
+            <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-base sm:text-lg bg-stone-800/50">
+              Interactive Map / Storefront
             </div>
           </motion.div>
 
@@ -669,7 +689,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Address</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base">
-                    123 Gourmet Street, Culinary District, NY 10001
+                    124 Pizza Avenue, Little Italy, NY 10013
                   </p>
                 </div>
               </div>
@@ -679,9 +699,9 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Hours</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base">
-                    Monday – Saturday: 5pm – 11pm
+                    Tuesday – Sunday: 12pm – 10pm
                     <br />
-                    Sunday: Closed
+                    Monday: Closed
                   </p>
                 </div>
               </div>
@@ -691,7 +711,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Phone</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base">
-                    (212) 555-0199
+                    (212) 555-1234
                   </p>
                 </div>
               </div>
@@ -701,7 +721,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Email</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base break-all">
-                    reservations@vermilion.nyc
+                    pizza@vesuvio.nyc
                   </p>
                 </div>
               </div>
@@ -718,7 +738,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Reservations"
           title="Reserve Your Table"
-          subtitle="Join us for an evening of refined dining, thoughtful service, and seasonal culinary expression."
+          subtitle="Join us for an authentic Italian pizza experience. Book your table online."
         />
 
         <motion.form
@@ -796,11 +816,11 @@ export default function Home() {
             Newsletter
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair">
-            Stay Updated
+            Pizza Lover’s Club
           </h2>
           <p className="mt-4 text-sm sm:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Subscribe for seasonal menus, chef collaborations, private event
-            announcements, and special dining experiences.
+            Subscribe for seasonal specials, new pizza releases, and exclusive
+            event invites.
           </p>
 
           <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-xl mx-auto">

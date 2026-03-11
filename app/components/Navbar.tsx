@@ -114,7 +114,7 @@ export default function Navbar() {
               href="/"
               className="relative z-[60] text-2xl md:text-3xl font-playfair tracking-wide text-white hover:text-[#D4AF37] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
             >
-              Vermilion
+              Vesuvio
             </Link>
 
             <div className="hidden md:flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md px-2 py-2">
