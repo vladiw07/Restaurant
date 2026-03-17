@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
@@ -20,12 +19,7 @@ import {
 // Animation variants
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0},
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const staggerContainer = {
@@ -39,46 +33,41 @@ const staggerContainer = {
   },
 };
 
-// Timeline data
+// Timeline data – cleaned up for better readability
 const timelineEvents = [
   {
     year: "2018",
     title: "The Dream Begins",
     description:
       "Chef Giovanni Rossi opens Pizzeria Vesuvio in the heart of Little Italy, bringing his family's century‑old recipes to New York.",
-    icon: <Calendar className="w-5 h-5" />,
   },
   {
     year: "2019",
     title: "First Accolade",
     description:
       "Vesuvio wins 'Best New Pizza' from the Village Voice, and lines start forming around the block.",
-    icon: <Award className="w-5 h-5" />,
   },
   {
     year: "2020",
     title: "Wood‑Fired Expansion",
     description:
       "We install a second custom‑built oak‑fired oven to meet demand, while maintaining our commitment to quality.",
-    icon: <ChefHat className="w-5 h-5" />,
   },
   {
     year: "2022",
     title: "50 Top Pizza World",
     description:
       "Vesuvio is ranked #12 in the prestigious 50 Top Pizza World list, the highest ranking for a NYC pizzeria.",
-    icon: <Star className="w-5 h-5" />,
   },
   {
     year: "2024",
     title: "A New Chapter",
     description:
       "We open our second location in Brooklyn, bringing authentic Neapolitan pizza to a new community.",
-    icon: <MapPin className="w-5 h-5" />,
   },
 ];
 
-// Values data
+// Values data (unchanged)
 const values = [
   {
     title: "Tradition",
@@ -106,8 +95,7 @@ const values = [
   },
 ];
 
-export default function Page() {
-  // Parallax effect for hero
+export default function StoryPage() {
   const { scrollYProgress } = useScroll();
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.3]);
@@ -121,8 +109,8 @@ export default function Page() {
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent_18%,transparent_82%,rgba(255,255,255,0.03))]" />
       </div>
 
-      {/* Hero Section with Parallax */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section – reduced height for less empty space */}
+      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <motion.div
           style={{ scale: heroScale, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
@@ -164,7 +152,7 @@ export default function Page() {
       </section>
 
       {/* Introduction */}
-      <section className="relative py-24 px-4 sm:px-6 max-w-5xl mx-auto">
+      <section className="relative py-20 px-4 sm:px-6 max-w-5xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -194,14 +182,14 @@ export default function Page() {
         </motion.div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="relative py-24 px-4 sm:px-6 max-w-7xl mx-auto">
+      {/* Timeline Section – redesigned as vertical for clarity */}
+      <section className="relative py-16 px-4 sm:px-6 max-w-5xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-playfair text-white mb-4">
             The Journey So Far
@@ -209,61 +197,43 @@ export default function Page() {
           <motion.div variants={fadeUp} className="h-px w-20 mx-auto bg-[#D4AF37]" />
         </motion.div>
 
-        {/* Horizontal Timeline (desktop) / Vertical (mobile) */}
-        <div className="hidden md:block relative">
-          {/* Line */}
-          <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
+        {/* Vertical timeline – clean, no icons, just years and cards */}
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#D4AF37]/50 to-transparent" />
 
-          <div className="relative flex justify-between">
-            {timelineEvents.map((event, index) => (
-              <motion.div
-                key={event.year}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative w-56 text-center"
-              >
-                {/* Icon */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#D4AF37] border-4 border-[#050B16] flex items-center justify-center text-[#0A0F1A] z-10">
-                  {event.icon}
-                </div>
-                {/* Content */}
-                <div className="pt-16">
-                  <div className="p-5 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm">
-                    <span className="text-[#D4AF37] font-bold text-lg">{event.year}</span>
-                    <h3 className="text-white font-playfair text-xl mt-2">{event.title}</h3>
-                    <p className="text-sm text-gray-400 mt-2">{event.description}</p>
+          <div className="space-y-12">
+            {timelineEvents.map((event, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <motion.div
+                  key={event.year}
+                  initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className={`relative flex flex-col md:flex-row ${
+                    isEven ? "md:flex-row" : "md:flex-row-reverse"
+                  } items-start gap-6 md:gap-8`}
+                >
+                  {/* Year marker – positioned on the line */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-[#D4AF37] border-4 border-[#050B16] z-10" />
+
+                  {/* Content – alternates left/right on desktop */}
+                  <div className={`md:w-1/2 ${isEven ? "md:text-right md:pr-12" : "md:text-left md:pl-12"} pl-16 md:pl-0`}>
+                    <span className="text-[#D4AF37] font-bold text-2xl block mb-2">{event.year}</span>
+                    <div className="rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 hover:border-[#D4AF37]/30 transition">
+                      <h3 className="text-white font-playfair text-xl mb-2">{event.title}</h3>
+                      <p className="text-sm text-gray-400 leading-relaxed">{event.description}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
-        {/* Mobile timeline (vertical) */}
-        <div className="md:hidden space-y-8">
-          {timelineEvents.map((event, index) => (
-            <motion.div
-              key={event.year}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex gap-4"
-            >
-              <div className="flex-shrink-0 w-16 text-right">
-                <span className="text-[#D4AF37] font-bold">{event.year}</span>
-              </div>
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#D4AF37] border-4 border-[#050B16] flex items-center justify-center text-[#0A0F1A]">
-                {event.icon}
-              </div>
-              <div className="flex-1 p-4 rounded-xl border border-white/10 bg-white/[0.04]">
-                <h3 className="text-white font-playfair text-lg">{event.title}</h3>
-                <p className="text-sm text-gray-400 mt-1">{event.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                  {/* Spacer for even alignment */}
+                  <div className="hidden md:block md:w-1/2" />
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

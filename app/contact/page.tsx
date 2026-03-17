@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -82,23 +81,23 @@ export default function ContactPage() {
             {
               icon: <MapPin className="w-6 h-6" />,
               title: "Visit Us",
-              content: ["124 Pizza Avenue", "Little Italy, NY 10013"],
+              content: ["Via Toledo, 123", "80134 Napoli NA, Italy"],
               action: "Get Directions",
-              link: "https://maps.google.com/?q=124+Pizza+Avenue+NY",
+              link: "https://maps.google.com/?q=Via+Toledo+123+Napoli",
             },
             {
               icon: <Phone className="w-6 h-6" />,
               title: "Call Us",
-              content: ["(212) 555-1234"],
+              content: ["+39 081 123 4567"],
               action: "Call Now",
-              link: "tel:+12125551234",
+              link: "tel:+390811234567",
             },
             {
               icon: <Mail className="w-6 h-6" />,
               title: "Email Us",
-              content: ["pizza@vesuvio.nyc", "events@vesuvio.nyc"],
+              content: ["info@vesuvio.it", "eventi@vesuvio.it"],
               action: "Send Email",
-              link: "mailto:pizza@vesuvio.nyc",
+              link: "mailto:info@vesuvio.it",
             },
           ].map((card, i) => (
             <motion.div
@@ -133,16 +132,31 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Map */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-6 h-[300px] relative overflow-hidden">
-              {/* Placeholder for Google Map – in production, embed actual map */}
-              <div className="absolute inset-0 bg-gradient-to-br from-stone-800/50 to-stone-900/50 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-10 h-10 text-[#D4AF37] mx-auto mb-2" />
-                  <p className="text-gray-300 text-sm">124 Pizza Avenue, NY</p>
-                  <p className="text-xs text-gray-400 mt-1">Interactive map would be embedded here</p>
-                </div>
-              </div>
+            {/* Interactive Map (OpenStreetMap) */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-0 h-[300px] relative overflow-hidden">
+              <iframe
+                title="Vesuvio location"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight={0}
+                marginWidth={0}
+                src="https://www.openstreetmap.org/export/embed.html?bbox=14.245%2C40.837%2C14.255%2C40.845&amp;layer=mapnik&amp;marker=40.841%2C14.250"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+              />
+              <small className="absolute bottom-1 right-2 text-[8px] text-gray-500 bg-black/50 px-1 py-0.5 rounded">
+                <a 
+                  href="https://www.openstreetmap.org/?mlat=40.841&amp;mlon=14.250#map=17/40.841/14.250" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-white"
+                >
+                  OpenStreetMap
+                </a>
+              </small>
             </div>
 
             {/* Hours */}
@@ -153,12 +167,12 @@ export default function ContactPage() {
               <div className="space-y-4">
                 {[
                   { day: "Monday", hours: "Closed" },
-                  { day: "Tuesday", hours: "12:00 pm – 10:00 pm" },
-                  { day: "Wednesday", hours: "12:00 pm – 10:00 pm" },
-                  { day: "Thursday", hours: "12:00 pm – 10:00 pm" },
-                  { day: "Friday", hours: "12:00 pm – 11:00 pm" },
-                  { day: "Saturday", hours: "12:00 pm – 11:00 pm" },
-                  { day: "Sunday", hours: "1:00 pm – 9:00 pm" },
+                  { day: "Tuesday", hours: "12:00 – 15:00, 19:00 – 23:00" },
+                  { day: "Wednesday", hours: "12:00 – 15:00, 19:00 – 23:00" },
+                  { day: "Thursday", hours: "12:00 – 15:00, 19:00 – 23:00" },
+                  { day: "Friday", hours: "12:00 – 15:00, 19:00 – 00:00" },
+                  { day: "Saturday", hours: "12:00 – 16:00, 19:00 – 00:00" },
+                  { day: "Sunday", hours: "12:00 – 16:00, 19:00 – 22:30" },
                 ].map((item) => (
                   <div key={item.day} className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0">
                     <span className="text-white font-medium">{item.day}</span>
@@ -166,7 +180,7 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-gray-500 mt-4">*Kitchen closes 30 minutes before closing</p>
+              <p className="text-xs text-gray-500 mt-4">*Orario continuato solo il sabato e domenica a pranzo</p>
             </div>
           </motion.div>
 

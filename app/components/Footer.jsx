@@ -172,9 +172,10 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
                 <p className="leading-relaxed">
-                  123 Gourmet Street
+                  Via Toledo, 123
+
                   <br />
-                  Culinary District, NY 10001
+                  80134 Napoli NA, Italy
                 </p>
               </div>
 
@@ -184,7 +185,7 @@ export default function Footer() {
                   href="tel:+12125550199"
                   className="hover:text-white transition"
                 >
-                  (212) 555-0199
+                  (212) 555-1234
                 </a>
               </div>
 

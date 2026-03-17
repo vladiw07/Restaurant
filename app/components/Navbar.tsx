@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Pizza, Phone, Calendar } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -104,19 +105,22 @@ export default function Navbar() {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? "py-3 bg-[#08101c]/72 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.28)]"
+            ? "py-3 bg-[#08101c]/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.28)]"
             : "py-5 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
+            {/* Logo with icon */}
             <Link
               href="/"
-              className="relative z-[60] text-2xl md:text-3xl font-playfair tracking-wide text-white hover:text-[#D4AF37] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
+              className="relative z-[60] flex items-center gap-2 text-2xl md:text-3xl font-playfair tracking-wide text-white hover:text-[#D4AF37] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
             >
-              Vesuvio
+              <Pizza className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" />
+              <span>Vesuvio</span>
             </Link>
 
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md px-2 py-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -148,11 +152,23 @@ export default function Navbar() {
               })}
             </div>
 
+            {/* Right side actions */}
             <div className="flex items-center gap-3">
+              {/* Phone (desktop) */}
+              <a
+                href="tel:+12125551234"
+                className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] text-sm text-gray-300 hover:text-[#D4AF37] hover:border-[#D4AF37]/50 transition"
+              >
+                <Phone className="w-4 h-4" />
+                <span>(212) 555-1234</span>
+              </a>
+
+              {/* Reserve Button (solid gold) */}
               <Link
                 href="#reservation"
-                className="hidden md:inline-flex px-5 py-2.5 rounded-full bg-[#D4AF37] text-[#0A0F1A] text-sm font-semibold hover:bg-[#caa531] hover:scale-[1.02] transition shadow-[0_10px_30px_rgba(212,175,55,0.18)]"
+                className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#D4AF37] text-[#0A0F1A] text-sm font-semibold hover:bg-[#caa531] hover:scale-[1.02] transition shadow-[0_10px_30px_rgba(212,175,55,0.18)]"
               >
+                <Calendar className="w-4 h-4" />
                 Reserve
               </Link>
 
@@ -165,6 +181,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -216,13 +233,26 @@ export default function Navbar() {
                   );
                 })}
 
-                <Link
-                  href="#reservation"
-                  onClick={() => setIsOpen(false)}
-                  className="mt-4 flex items-center justify-center rounded-2xl bg-[#D4AF37] text-[#0A0F1A] font-semibold py-4 hover:bg-[#caa531] transition"
-                >
-                  Reserve a Table
-                </Link>
+                {/* Mobile action buttons */}
+                <div className="mt-6 space-y-3">
+                  <a
+                    href="tel:+12125551234"
+                    className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] py-4 text-white hover:text-[#D4AF37] transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Phone className="w-5 h-5" />
+                    <span className="font-medium">Call (212) 555-1234</span>
+                  </a>
+
+                  <Link
+                    href="#reservation"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF37] text-[#0A0F1A] font-semibold py-4 hover:bg-[#caa531] transition"
+                  >
+                    <Calendar className="w-5 h-5" />
+                    Reserve a Table
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </>

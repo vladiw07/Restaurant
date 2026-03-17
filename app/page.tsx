@@ -47,32 +47,32 @@ const dishes = [
   {
     name: "Margherita DOC",
     desc: "San Marzano tomatoes, fior di latte, fresh basil, extra virgin olive oil",
-    price: "$16",
+    price: "€16",
   },
   {
     name: "Diavola",
     desc: "Spicy salami, tomato sauce, mozzarella, chili oil, oregano",
-    price: "$18",
+    price: "€18",
   },
   {
     name: "Quattro Formaggi",
     desc: "Mozzarella, gorgonzola, parmesan, fontina, a touch of honey",
-    price: "$19",
+    price: "€19",
   },
   {
     name: "Prosciutto e Funghi",
     desc: "Ham, mushrooms, mozzarella, tomato sauce, fresh arugula",
-    price: "$20",
+    price: "€20",
   },
   {
     name: "Tiramisu",
     desc: "Classic Italian dessert with mascarpone cream and espresso",
-    price: "$8",
+    price: "€8",
   },
   {
     name: "Bruschetta",
     desc: "Grilled country bread, vine-ripened tomatoes, garlic, basil",
-    price: "$9",
+    price: "€9",
   },
 ];
 
@@ -272,7 +272,7 @@ export default function Home() {
                       <p className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
                         Spicy salami, chili oil, mozzarella, San Marzano.
                       </p>
-                      <p className="mt-3 text-[#D4AF37] font-semibold">$18</p>
+                      <p className="mt-3 text-[#D4AF37] font-semibold">€18</p>
                     </div>
 
                     <div className="rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md p-4 sm:p-5">
@@ -665,16 +665,36 @@ export default function Home() {
         <SectionHeading eyebrow="Visit" title="Find Us" />
 
         <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-6 sm:gap-8 md:gap-12">
+          {/* Interactive Map */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative h-[280px] sm:h-[340px] md:h-[420px] rounded-[24px] sm:rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+            className="relative h-[280px] sm:h-[340px] md:h-[420px] rounded-[24px] sm:rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
           >
-            {/* Replace with map or storefront image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-base sm:text-lg bg-stone-800/50">
-              Interactive Map / Storefront
-            </div>
+            <iframe
+              title="Vesuvio location"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight={0}
+              marginWidth={0}
+              src="https://www.openstreetmap.org/export/embed.html?bbox=14.245%2C40.837%2C14.255%2C40.845&amp;layer=mapnik&amp;marker=40.841%2C14.250"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+            />
+            <small className="absolute bottom-1 right-2 text-[8px] text-gray-500 bg-black/50 px-1 py-0.5 rounded">
+              <a 
+                href="https://www.openstreetmap.org/?mlat=40.841&amp;mlon=14.250#map=17/40.841/14.250" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-white"
+              >
+                OpenStreetMap
+              </a>
+            </small>
           </motion.div>
 
           <motion.div
@@ -689,7 +709,8 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Address</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base">
-                    124 Pizza Avenue, Little Italy, NY 10013
+                    Via Toledo, 123<br />
+                    80134 Napoli NA, Italy
                   </p>
                 </div>
               </div>
@@ -699,8 +720,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Hours</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base">
-                    Tuesday – Sunday: 12pm – 10pm
-                    <br />
+                    Tuesday – Sunday: 12:00 – 15:00, 19:00 – 23:00<br />
                     Monday: Closed
                   </p>
                 </div>
@@ -711,7 +731,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Phone</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base">
-                    (212) 555-1234
+                    +39 081 123 4567
                   </p>
                 </div>
               </div>
@@ -721,7 +741,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-medium text-white">Email</h3>
                   <p className="mt-1 text-gray-400 text-sm sm:text-base break-all">
-                    pizza@vesuvio.nyc
+                    info@vesuvio.it
                   </p>
                 </div>
               </div>
