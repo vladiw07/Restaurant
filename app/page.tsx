@@ -929,11 +929,11 @@ export default function Home() {
               {testimonials[testimonialIndex].author}
             </p>
 
-            {testimonials[testimonialIndex].meta && (
+            {/* {testimonials[testimonialIndex].meta && (
               <p className="mt-2 text-sm text-gray-400 sm:text-[15px]">
                 {testimonials[testimonialIndex].meta}
               </p>
-            )}
+            )} */}
           </div>
         </motion.div>
 
