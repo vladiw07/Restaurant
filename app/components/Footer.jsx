@@ -82,9 +82,9 @@ export default function Footer() {
             variants={fadeUp}
           >
             <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#D4AF37] mb-3">
-              Vermilion
+              Vesuvio
             </p>
-            <h2 className="text-3xl md:text-4xl font-playfair">Vermilion</h2>
+            <h2 className="text-3xl md:text-4xl font-playfair">Vesuvio</h2>
             <p className="mt-4 text-gray-400 leading-relaxed max-w-md">
               Modern European dining shaped by seasonality, precision, and warm
               hospitality in an intimate, elegant setting.
@@ -181,21 +181,18 @@ export default function Footer() {
 
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                <a
-                  href="tel:+12125550199"
-                  className="hover:text-white transition"
-                >
-                  (212) 555-1234
-                </a>
+                
+                  (212) 555-0199
+              
               </div>
 
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:reservations@vermilion.nyc"
+                  href="mailto:reservations@vesuvio.nyc"
                   className="hover:text-white transition break-all"
                 >
-                  reservations@vermilion.nyc
+                  reservations@vesuvio.nyc
                 </a>
               </div>
             </div>
@@ -204,7 +201,7 @@ export default function Footer() {
 
         {/* bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Vermilion. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Vesuvio. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-white transition">
