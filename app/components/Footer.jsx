@@ -23,47 +23,52 @@ const fadeUp = {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-[#050B16] text-white overflow-hidden">
-      {/* background glow */}
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#050B16] text-white">
+      {/* background atmosphere */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.08),_transparent_30%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.08),transparent_30%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.03),transparent_18%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_40%)]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         {/* top CTA strip */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.25 }}
           variants={fadeUp}
           className="py-14 md:py-16"
         >
-          <div className="rounded-[32px] border border-white/10 bg-white/[0.04] backdrop-blur-md px-6 py-8 md:px-10 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.22)]">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[0.055] via-white/[0.03] to-white/[0.02] px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.24)] backdrop-blur-md sm:rounded-[32px] sm:px-8 md:px-10 md:py-10">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.10),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.04),transparent_22%)]" />
+            <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/6 sm:rounded-[32px]" />
+
+            <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
-                <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#D4AF37] mb-3">
+                <p className="mb-3 text-[10px] uppercase tracking-[0.34em] text-[#D4AF37] sm:text-[11px] md:text-xs">
                   Reservations
                 </p>
-                <h3 className="text-3xl md:text-4xl font-playfair leading-tight">
+                <h3 className="font-playfair text-3xl leading-tight text-white md:text-4xl">
                   An Evening Worth Remembering
                 </h3>
-                <p className="mt-4 text-gray-400 leading-relaxed">
-                  Reserve your table for seasonal tasting menus, impeccable wine
-                  pairings, and a quietly luxurious dining experience.
+                <p className="mt-4 max-w-xl leading-relaxed text-gray-400">
+                  Reserve your table for beautifully made pizza, warm service,
+                  and a dining experience shaped by atmosphere, craft, and
+                  authentic Neapolitan tradition.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Link
                   href="/menu"
-                  className="px-7 py-3.5 rounded-full border border-white/15 bg-white/[0.03] hover:bg-white/[0.07] transition text-center"
+                  className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/12 bg-white/[0.03] px-7 py-3.5 text-center text-white/85 transition duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
                 >
                   View Menu
                 </Link>
                 <Link
                   href="#reservation"
-                  className="px-7 py-3.5 rounded-full bg-[#D4AF37] text-[#0A0F1A] font-semibold hover:bg-[#caa531] transition text-center shadow-[0_10px_30px_rgba(212,175,55,0.18)]"
+                  className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3.5 text-center font-semibold text-[#0A0F1A] shadow-[0_10px_30px_rgba(212,175,55,0.18)] transition duration-300 hover:scale-[1.02] hover:bg-[#caa531]"
                 >
                   Book a Table
                 </Link>
@@ -73,37 +78,42 @@ export default function Footer() {
         </motion.div>
 
         {/* main footer */}
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] gap-10 md:gap-12 py-14 md:py-16 border-t border-white/10">
+        <div className="grid gap-10 border-t border-white/10 py-14 md:grid-cols-[1.15fr_0.8fr_0.8fr_1fr] md:gap-10 md:py-16 lg:gap-12">
           {/* brand */}
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#D4AF37] mb-3">
+            <p className="mb-3 text-[10px] uppercase tracking-[0.34em] text-[#D4AF37] sm:text-[11px] md:text-xs">
               Vesuvio
             </p>
-            <h2 className="text-3xl md:text-4xl font-playfair">Vesuvio</h2>
-            <p className="mt-4 text-gray-400 leading-relaxed max-w-md">
-              Modern European dining shaped by seasonality, precision, and warm
-              hospitality in an intimate, elegant setting.
+
+            <h2 className="font-playfair text-3xl text-white md:text-4xl">
+              Vesuvio
+            </h2>
+
+            <p className="mt-4 max-w-md leading-relaxed text-gray-400">
+              Authentic Neapolitan pizza, seasonal ingredients, and warm
+              hospitality served in an intimate setting inspired by the spirit
+              of Napoli.
             </p>
 
             <div className="mt-6 flex items-center gap-3">
               <a
                 href="#"
                 aria-label="Instagram"
-                className="w-11 h-11 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center hover:border-[#D4AF37]/50 hover:text-[#D4AF37] transition"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition duration-300 hover:border-[#D4AF37]/50 hover:bg-white/[0.06] hover:text-[#D4AF37]"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="w-11 h-11 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center hover:border-[#D4AF37]/50 hover:text-[#D4AF37] transition"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition duration-300 hover:border-[#D4AF37]/50 hover:bg-white/[0.06] hover:text-[#D4AF37]"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </motion.div>
@@ -112,10 +122,11 @@ export default function Footer() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            <h3 className="text-lg font-playfair mb-5">Navigation</h3>
+            <h3 className="mb-5 font-playfair text-lg text-white">Navigation</h3>
+
             <div className="space-y-3">
               {[
                 { label: "Home", href: "/" },
@@ -127,10 +138,10 @@ export default function Footer() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group flex items-center gap-2 text-gray-400 hover:text-white transition"
+                  className="group flex items-center gap-2 text-gray-400 transition duration-300 hover:text-white"
                 >
-                  <ChevronRight className="w-4 h-4 text-[#D4AF37] opacity-70 group-hover:translate-x-0.5 transition" />
-                  {item.label}
+                  <ChevronRight className="h-4 w-4 text-[#D4AF37] opacity-70 transition duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                  <span>{item.label}</span>
                 </Link>
               ))}
             </div>
@@ -140,20 +151,24 @@ export default function Footer() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            <h3 className="text-lg font-playfair mb-5">Opening Hours</h3>
+            <h3 className="mb-5 font-playfair text-lg text-white">
+              Opening Hours
+            </h3>
+
             <div className="space-y-4 text-gray-400">
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#D4AF37]" />
                 <div className="leading-relaxed">
-                  <p>Monday – Saturday</p>
-                  <p className="text-white">5:00 PM – 11:00 PM</p>
+                  <p>Tuesday – Sunday</p>
+                  <p className="text-white">12:00 – 15:00, 19:00 – 23:00</p>
                 </div>
               </div>
+
               <div className="pl-8">
-                <p>Sunday</p>
+                <p>Monday</p>
                 <p className="text-white">Closed</p>
               </div>
             </div>
@@ -163,36 +178,38 @@ export default function Footer() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            <h3 className="text-lg font-playfair mb-5">Contact</h3>
+            <h3 className="mb-5 font-playfair text-lg text-white">Contact</h3>
 
             <div className="space-y-5 text-gray-400">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#D4AF37]" />
                 <p className="leading-relaxed">
                   Via Toledo, 123
-
                   <br />
                   80134 Napoli NA, Italy
                 </p>
               </div>
 
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                
-                  (212) 555-0199
-              
+                <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#D4AF37]" />
+                <a
+                  href="tel:+390811234567"
+                  className="transition hover:text-white"
+                >
+                  +39 081 123 4567
+                </a>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                <Mail className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#D4AF37]" />
                 <a
-                  href="mailto:reservations@vesuvio.nyc"
-                  className="hover:text-white transition break-all"
+                  href="mailto:info@vesuvio.it"
+                  className="break-all transition hover:text-white"
                 >
-                  reservations@vesuvio.nyc
+                  info@vesuvio.it
                 </a>
               </div>
             </div>
@@ -200,14 +217,14 @@ export default function Footer() {
         </div>
 
         {/* bottom bar */}
-        <div className="border-t border-white/10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-sm text-gray-500 md:flex-row">
           <p>© {new Date().getFullYear()} Vesuvio. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-white transition">
+            <Link href="/privacy-policy" className="transition hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-white transition">
+            <Link href="/terms" className="transition hover:text-white">
               Terms of Service
             </Link>
           </div>

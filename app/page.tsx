@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -28,6 +28,8 @@ import signatureDish6 from "./assets/images/signaturedish6.jpg";
 import chefImage from "./assets/images/chef.jpg";
 
 import privateDiningImg from "./assets/images/private-dining.png";
+
+
 
 
 const fadeUp = {
@@ -1069,113 +1071,244 @@ export default function Home() {
       </SectionShell>
 
       {/* RESERVATION */}
-      <SectionShell glow="gold" divider>
-        <div id="reservation" className="max-w-4xl mx-auto">
-          <SectionHeading
-            eyebrow="Reservations"
-            title="Reserve Your Table"
-            subtitle="Join us for an authentic Italian pizza experience. Book your table online."
-          />
+<SectionShell glow="gold" divider>
+  <div id="reservation" className="mx-auto max-w-6xl">
+    <SectionHeading
+      eyebrow="Reservations"
+      title="Reserve Your Table"
+      subtitle="Join us for an authentic Neapolitan dining experience — warm hospitality, wood-fired pizza, and a table waiting for you."
+    />
 
-          <motion.form
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[24px] sm:rounded-[28px] md:rounded-[32px] border border-white/10 bg-white/[0.04] backdrop-blur-md p-6 sm:p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
-          >
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
-              <div>
-                <label className="block text-sm text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/10 placeholder:text-gray-400 outline-none focus:border-[#D4AF37]/60"
-                />
-              </div>
+    <div className="grid items-stretch gap-6 sm:gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:gap-10">
+      {/* LEFT SIDE */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative"
+      >
+        <div className="relative h-full overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-br from-white/[0.05] via-white/[0.03] to-white/[0.02] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.24)] backdrop-blur-md sm:rounded-[28px] sm:p-8 md:rounded-[32px] md:p-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.10),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.04),transparent_24%)]" />
+          <div className="pointer-events-none absolute inset-0 rounded-[24px] ring-1 ring-inset ring-white/6 sm:rounded-[28px] md:rounded-[32px]" />
 
-              <div>
-                <label className="block text-sm text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/10 placeholder:text-gray-400 outline-none focus:border-[#D4AF37]/60"
-                />
-              </div>
+          <div className="relative">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] sm:text-[11px]">
+              Dining Experience
+            </p>
 
-              <div>
-                <label className="block text-sm text-gray-300 mb-2">Date</label>
-                <input
-                  type="date"
-                  className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/10 outline-none focus:border-[#D4AF37]/60"
-                />
-              </div>
+            <h3 className="mt-2 font-playfair text-2xl text-white sm:text-3xl">
+              Make the evening
+              <span className="block text-[#F3E7C2]">feel special</span>
+            </h3>
 
-              <div>
-                <label className="block text-sm text-gray-300 mb-2">Time</label>
-                <input
-                  type="time"
-                  className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/10 outline-none focus:border-[#D4AF37]/60"
-                />
-              </div>
+            <div className="mt-4 h-px w-16 bg-gradient-to-r from-[#D4AF37]/80 to-transparent" />
 
-              <div className="md:col-span-2">
-                <label className="block text-sm text-gray-300 mb-2">
-                  Guests
-                </label>
-                <select className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/10 outline-none focus:border-[#D4AF37]/60">
-                  {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <option key={n}>
-                      {n} {n === 1 ? "Guest" : "Guests"}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <p className="mt-5 text-sm leading-relaxed text-gray-300 sm:text-base">
+              Reserve in advance for the best seating, a relaxed atmosphere, and
+              the full Vesuvio experience from the very first course.
+            </p>
+
+            <div className="mt-7 space-y-3.5">
+              {[
+                "Authentic wood-fired Neapolitan pizza",
+                "Warm service and family-friendly atmosphere",
+                "Ideal for date nights, gatherings, and celebrations",
+              ].map((item, i) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-[18px] border border-white/8 bg-white/[0.03] px-4 py-3.5"
+                >
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/35 bg-[#D4AF37]/10 text-[10px] font-medium text-[#D4AF37]">
+                    0{i + 1}
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-300 sm:text-[15px]">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
+
+            <div className="mt-8 rounded-[20px] border border-white/8 bg-[#0A1220]/70 px-4 py-4 backdrop-blur-md sm:px-5">
+              <p className="text-[11px] uppercase tracking-[0.24em] text-[#D4AF37]">
+                Opening Hours
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-gray-300 sm:text-[15px]">
+                Tuesday – Sunday: 12:00 – 15:00, 19:00 – 23:00
+                <br />
+                Monday: Closed
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* RIGHT SIDE FORM */}
+      <motion.form
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, ease: "easeOut", delay: 0.05 }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.035] to-white/[0.02] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-md sm:rounded-[28px] sm:p-8 md:rounded-[32px] md:p-10"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.10),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.04),transparent_24%)]" />
+        <div className="pointer-events-none absolute inset-0 rounded-[24px] ring-1 ring-inset ring-white/6 sm:rounded-[28px] md:rounded-[32px]" />
+
+        <div className="relative">
+          <div className="mb-6 sm:mb-8">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] sm:text-[11px]">
+              Book Online
+            </p>
+            <h3 className="mt-2 font-playfair text-2xl text-white sm:text-3xl">
+              Secure your table
+            </h3>
+          </div>
+
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+            <div>
+              <label className="mb-2 block text-sm text-gray-300">Name</label>
+              <input
+                type="text"
+                placeholder="Your name"
+                className="w-full rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white placeholder:text-gray-400 outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm text-gray-300">Email</label>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="w-full rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white placeholder:text-gray-400 outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm text-gray-300">Date</label>
+              <input
+                type="date"
+                className="w-full rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm text-gray-300">Time</label>
+              <input
+                type="time"
+                className="w-full rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]"
+              />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="mb-2 block text-sm text-gray-300">Guests</label>
+              <select className="w-full rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]">
+                {[1, 2, 3, 4, 5, 6].map((n) => (
+                  <option key={n} className="bg-[#0A1220] text-white">
+                    {n} {n === 1 ? "Guest" : "Guests"}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="mb-2 block text-sm text-gray-300">
+                Special Request
+              </label>
+              <textarea
+                rows={4}
+                placeholder="Celebration, seating preference, allergies, or anything else we should know."
+                className="w-full resize-none rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white placeholder:text-gray-400 outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]"
+              />
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm leading-relaxed text-gray-400">
+              We’ll do our best to accommodate your preferred time and seating.
+            </p>
 
             <button
               type="submit"
-              className="mt-7 sm:mt-8 w-full py-3.5 rounded-xl bg-[#D4AF37] text-[#0A0F1A] font-semibold hover:bg-[#c9a532] hover:scale-[1.01] transition shadow-[0_10px_30px_rgba(212,175,55,0.18)]"
+              className="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3.5 text-sm font-semibold text-[#0A0F1A] shadow-[0_10px_30px_rgba(212,175,55,0.18)] transition hover:scale-[1.01] hover:bg-[#c9a532] sm:text-base"
             >
               Book Now
             </button>
-          </motion.form>
+          </div>
         </div>
-      </SectionShell>
+      </motion.form>
+    </div>
+  </div>
+</SectionShell>
 
-      {/* NEWSLETTER */}
-      <SectionShell glow="neutral" divider className="pb-24 sm:pb-28 md:pb-36">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="rounded-[24px] sm:rounded-[28px] md:rounded-[32px] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.03] p-6 sm:p-8 md:p-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
-          >
-            <p className="text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.35em] text-[#D4AF37] mb-3">
-              Newsletter
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair">
-              Pizza Lover’s Club
-            </h2>
-            <p className="mt-4 text-sm sm:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Subscribe for seasonal specials, new pizza releases, and exclusive
-              event invites.
-            </p>
+{/* NEWSLETTER */}
+<SectionShell glow="neutral" divider className="pb-24 sm:pb-28 md:pb-36">
+  <div className="mx-auto max-w-5xl">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.035] to-white/[0.02] px-6 py-8 text-center shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-md sm:rounded-[28px] sm:px-8 sm:py-10 md:rounded-[32px] md:px-12 md:py-14"
+    >
+      {/* background polish */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.10),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.04),transparent_24%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 rounded-[24px] ring-1 ring-inset ring-white/6 sm:rounded-[28px] md:rounded-[32px]" />
 
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-xl mx-auto">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/10 placeholder:text-gray-400 outline-none focus:border-[#D4AF37]/60"
-              />
-              <button className="px-7 py-3.5 rounded-xl bg-[#D4AF37] text-[#0A0F1A] font-semibold hover:bg-[#c9a532] transition">
-                Subscribe
-              </button>
+      <div className="relative">
+        <p className="mb-3 text-[10px] uppercase tracking-[0.32em] text-[#D4AF37] sm:text-[11px] sm:tracking-[0.35em] md:text-xs">
+          Newsletter
+        </p>
+
+        <h2 className="font-playfair text-2xl text-white sm:text-3xl md:text-4xl lg:text-[2.8rem]">
+          Pizza Lover’s Club
+        </h2>
+
+        <div className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent sm:w-20" />
+
+        <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-gray-400 sm:text-base md:text-lg">
+          Subscribe for seasonal specials, new pizza releases, chef’s picks, and
+          invitations to exclusive evenings at Vesuvio.
+        </p>
+
+        <div className="mx-auto mt-8 grid max-w-3xl gap-3 text-sm text-gray-300 sm:grid-cols-3 sm:gap-4">
+          {[
+            "Seasonal menu launches",
+            "Special event invitations",
+            "Exclusive subscriber offers",
+          ].map((item, i) => (
+            <div
+              key={item}
+              className="flex items-center justify-center gap-3 rounded-[18px] border border-white/8 bg-white/[0.03] px-4 py-3.5"
+            >
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/35 bg-[#D4AF37]/10 text-[10px] font-medium text-[#D4AF37]">
+                0{i + 1}
+              </div>
+              <span className="text-sm text-gray-300">{item}</span>
             </div>
-          </motion.div>
+          ))}
         </div>
-      </SectionShell>
+
+        <div className="mx-auto mt-8 flex max-w-2xl flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="flex-1 rounded-[16px] border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white placeholder:text-gray-400 outline-none transition focus:border-[#D4AF37]/60 focus:bg-white/[0.065]"
+          />
+
+          <button className="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3.5 font-semibold text-[#0A0F1A] transition hover:bg-[#c9a532] sm:px-8">
+            Subscribe
+          </button>
+        </div>
+
+        <p className="mt-4 text-xs leading-relaxed text-gray-500 sm:text-sm">
+          No spam — only thoughtful updates, special offers, and the occasional
+          reason to crave pizza.
+        </p>
+      </div>
+    </motion.div>
+  </div>
+</SectionShell>
     </div>
   );
 }
